@@ -5,6 +5,7 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import EmotionItem from "./EmotionItem";
 
+
 const Editor = ({ initData, onSubmit }) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
@@ -12,6 +13,7 @@ const Editor = ({ initData, onSubmit }) => {
     emotionId: 3,
     content: "",
   });
+  
 
   useEffect(() => {
     if (initData) {
@@ -58,7 +60,7 @@ const Editor = ({ initData, onSubmit }) => {
         <input type="date" value={state.date} onChange={handleChangeDate} />
       </div>
       <div className="editor_section">
-        <h4>오늘의 감정</h4>
+        <h4>경기 감정</h4>
         <div className="input_wrapper emotion_list_wrapper">
           {emotionList.map((it) => (
             <EmotionItem
@@ -71,10 +73,16 @@ const Editor = ({ initData, onSubmit }) => {
         </div>
       </div>
       <div className="editor_section">
-        <h4>오늘의 일기</h4>
+          <h4>경기 결과</h4>
+          <div className="input_wrapper">
+          
+        </div>
+      </div>
+      <div className="editor_section">
+        <h4>오늘의 경기후기</h4>
         <div className="input_wrapper">
           <textarea
-            placeholder="오늘은 어땠나요?"
+            placeholder="오늘 경기는 어땠나요?"
             value={state.content}
             onChange={handleChangeContent}
           />

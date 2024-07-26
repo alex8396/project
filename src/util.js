@@ -22,6 +22,8 @@ export const getEmotionImgById = (emotionId) => {
   }
 };
 
+
+
 export const getFormattedDate = (targetDate) => {
   let year = targetDate.getFullYear();
   let month = targetDate.getMonth() + 1;
