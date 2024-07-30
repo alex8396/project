@@ -21,7 +21,7 @@ const Diary = () => {
   if (!data) {
     return <div>경기후기를 불러오고 있습니다...</div>;
   } else {
-    const { date, emotionId, content } = data;
+    const { date, emotionId, gameId, content } = data;
     const title = `${getFormattedDate(new Date(Number(date)))} 기록`;
     return (
       <div>
@@ -31,6 +31,7 @@ const Diary = () => {
           rightChild={<Button text={"수정하기"} onClick={goEdit} />}
         />
         <Viewer content={content} emotionId={emotionId} />
+        <Viewer content={content} gameId={gameId} />
       </div>
     );
   }

@@ -49,7 +49,7 @@ function App() {
     setIsDataLoaded(true);
   }, []);
 
-  const onCreate = (date, content, emotionId) => {
+  const onCreate = (date, content, emotionId,gameId) => {
     dispatch({
       type: "CREATE",
       data: {
@@ -57,12 +57,13 @@ function App() {
         date: new Date(date).getTime(),
         content,
         emotionId,
+        gameId,
       },
     });
     idRef.current += 1;
   };
 
-  const onUpdate = (targetId, date, content, emotionId) => {
+  const onUpdate = (targetId, date, content, emotionId, gameId) => {
     dispatch({
       type: "UPDATE",
       data: {
@@ -70,6 +71,7 @@ function App() {
         date: new Date(date).getTime(),
         content,
         emotionId,
+        gameId
       },
     });
   };

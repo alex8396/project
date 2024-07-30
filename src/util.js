@@ -4,6 +4,13 @@ import emotion3 from "./img/emotion3.png";
 import emotion4 from "./img/emotion4.png";
 import emotion5 from "./img/emotion5.png";
 
+import game1 from "./img/game1.png";
+import game2 from "./img/game2.png";
+import game3 from "./img/game3.png";
+
+
+
+
 export const getEmotionImgById = (emotionId) => {
   const targetEmotionId = String(emotionId);
   switch (targetEmotionId) {
@@ -22,7 +29,19 @@ export const getEmotionImgById = (emotionId) => {
   }
 };
 
-
+export const getGameImgById = (gameId) => {
+  const targetGameId = String(gameId);
+  switch (targetGameId) {
+    case "1":
+      return game1;
+    case "2":
+      return game2;
+    case "3":
+      return game3;
+    default:
+      return null;
+  }
+};
 
 export const getFormattedDate = (targetDate) => {
   let year = targetDate.getFullYear();
@@ -64,6 +83,26 @@ export const emotionList = [
     img: getEmotionImgById(5),
   },
 ];
+
+export const gameList = [
+  {
+    id: 1,
+    name: "승",
+    img: getGameImgById(1),
+  },
+  {
+    id: 2,
+    name: "무",
+    img: getGameImgById(2),
+  },
+  {
+    id: 3,
+    name: "패",
+    img: getGameImgById(3),
+  },
+  
+];
+
 
 export const getMonthRangeByDate = (date) => {
   const beginTimeStamp = new Date(

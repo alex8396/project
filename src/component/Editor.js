@@ -1,9 +1,11 @@
 import "./Editor.css";
 import { useState, useEffect, useCallback } from "react";
-import { emotionList, getFormattedDate } from "../util";
+import { emotionList, getFormattedDate, gameList} from "../util";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import EmotionItem from "./EmotionItem";
+import GameItem from "./GameItem";
+
 
 
 const Editor = ({ initData, onSubmit }) => {
@@ -11,6 +13,7 @@ const Editor = ({ initData, onSubmit }) => {
   const [state, setState] = useState({
     date: getFormattedDate(new Date()),
     emotionId: 3,
+    gmaeId:4,
     content: "",
   });
   
@@ -44,7 +47,12 @@ const Editor = ({ initData, onSubmit }) => {
       emotionId,
     }));
   }, []);
-
+  const handleChangeGame = useCallback((gameId) => {
+    setState((state) => ({
+      ...state,
+      gameId,
+    }));
+  }, []);
   const handleSubmit = () => {
     onSubmit(state);
   };
@@ -75,7 +83,16 @@ const Editor = ({ initData, onSubmit }) => {
       <div className="editor_section">
           <h4>경기 결과</h4>
           <div className="input_wrapper">
-          
+          <div className="input_wrapper game_list_wrapper">
+          {gameList.map((it) => (
+            <GameItem
+              key={it.id}
+              {...it}
+              onClick={handleChangeGame}
+              isSelected={state.gameId === it.id}
+            />
+          ))}
+        </div>
         </div>
       </div>
       <div className="editor_section">

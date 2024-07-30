@@ -14,10 +14,11 @@ const New = () => {
   };
 
   const onSubmit = (data) => {
-    const { date, content, emotionId } = data;
-    onCreate(date, content, emotionId);
+    const { date, content, emotionId, gameId } = data;
+    onCreate(date, content, emotionId, gameId);
     navigate("/", { replace: true });
   };
+  
 
   return (
     <div>

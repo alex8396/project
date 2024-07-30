@@ -2,9 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./DiaryItem.css";
 import { getEmotionImgById } from "../util";
+import { getGameImgById } from "../util";
 import Button from "./Button";
 
-const DiaryItem = ({ id, emotionId, content, date }) => {
+const DiaryItem = ({ id, emotionId, content, date, gameId }) => {
   const navigate = useNavigate();
   const goDetail = () => {
     navigate(`/diary/${id}`);
@@ -19,6 +20,11 @@ const DiaryItem = ({ id, emotionId, content, date }) => {
         className={["img_section", `img_section_${emotionId}`].join(" ")}
       >
         <img alt={`emotion${emotionId}`} src={getEmotionImgById(emotionId)} />
+      </div><div
+        onClick={goDetail}
+        className={["img_section", `img_section_${gameId}`].join(" ")}
+      >
+        <img alt={`game${gameId}`} src={getGameImgById(gameId)} />
       </div>
       <div onClick={goDetail} className="info_section">
         <div className="date_wrapper">

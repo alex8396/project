@@ -25,8 +25,8 @@ const Edit = () => {
 
   const onSubmit = (data) => {
     if (window.confirm("경기후기를 정말 수정할까요?")) {
-      const { date, content, emotionId } = data;
-      onUpdate(id, date, content, emotionId);
+      const { date, content, emotionId,gameId } = data;
+      onUpdate(id, date, content, emotionId,gameId);
       navigate("/", { replace: true });
     }
   };
