@@ -1,7 +1,7 @@
 import React from "react";
 import "./TeamItem.css";
 
-const GameItem = ({ id, img, name, onClick, isSelected }) => {
+const TeamItem = ({ id, img, name, onClick, isSelected }) => {
   const handleOnClick = () => {
     onClick(id);
   };
@@ -19,4 +19,4 @@ const GameItem = ({ id, img, name, onClick, isSelected }) => {
     </div>
   );
 };
-export default React.memo(GameItem);
+export default React.memo(TeamItem);

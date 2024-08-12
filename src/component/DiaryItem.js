@@ -30,7 +30,7 @@ const DiaryItem = ({ id, emotionId, content, date, gameId,teamId }) => {
       </div>
       <div
         onClick={goDetail}
-        className={["img_section", `img_section__${teamId}`].join(" ")}
+        className={["img_section", `img_section___${teamId}`].join(" ")}
       >
         <img alt={`team${teamId}`} src={getTeamImgById(teamId)} />
       </div>

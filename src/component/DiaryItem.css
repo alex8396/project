@@ -41,6 +41,43 @@
 .DiaryItem .img_section__3 {
   background-color: #fd565f;
 }
+
+.DiaryItem .img_section___1 {
+  background-color: #EA0029;
+}
+
+.DiaryItem .img_section___2 {
+  background-color: #c30452;
+}
+
+.DiaryItem .img_section___3 {
+  background-color: #074CA1;
+}
+
+.DiaryItem .img_section___4 {
+  background-color: #CE0E2D;
+}
+
+.DiaryItem .img_section___5 {
+  background-color: #000000;
+}
+
+.DiaryItem .img_section___6 {
+  background-color: #315288;
+}
+
+.DiaryItem .img_section___7 {
+  background-color: #041E42;
+}
+
+.DiaryItem .img_section___8 {
+  background-color: #FF6600;
+}
+
+.DiaryItem .img_section___9 {
+  background-color: #570514;
+}
+
 .DiaryItem .img_section img {
   width: 50%;
 }
