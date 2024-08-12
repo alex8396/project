@@ -14,8 +14,8 @@ const New = () => {
   };
 
   const onSubmit = (data) => {
-    const { date, content, emotionId, gameId } = data;
-    onCreate(date, content, emotionId, gameId);
+    const { date, content, emotionId, gameId,teamId } = data;
+    onCreate(date, content, emotionId, gameId, teamId);
     navigate("/", { replace: true });
   };
   

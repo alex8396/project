@@ -50,3 +50,9 @@ textarea {
   justify-content: space-around;
   gap: 2%;
 }
+
+.Editor .team_list_wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 2%;
+}

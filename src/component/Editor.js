@@ -1,22 +1,21 @@
 import "./Editor.css";
 import { useState, useEffect, useCallback } from "react";
-import { emotionList, getFormattedDate, gameList} from "../util";
+import { emotionList, getFormattedDate, gameList, teamList } from "../util";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import EmotionItem from "./EmotionItem";
 import GameItem from "./GameItem";
-
-
+import TeamItem from "./TeamItem";
 
 const Editor = ({ initData, onSubmit }) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     date: getFormattedDate(new Date()),
     emotionId: 3,
-    gmaeId:4,
+    gameId: 4,
+    teamId: 10,
     content: "",
   });
-  
 
   useEffect(() => {
     if (initData) {
@@ -47,12 +46,21 @@ const Editor = ({ initData, onSubmit }) => {
       emotionId,
     }));
   }, []);
+
   const handleChangeGame = useCallback((gameId) => {
     setState((state) => ({
       ...state,
       gameId,
     }));
   }, []);
+
+  const handleChangeTeam = useCallback((teamId) => { // 수정된 함수 이름
+    setState((state) => ({
+      ...state,
+      teamId,
+    }));
+  }, []);
+
   const handleSubmit = () => {
     onSubmit(state);
   };
@@ -81,9 +89,8 @@ const Editor = ({ initData, onSubmit }) => {
         </div>
       </div>
       <div className="editor_section">
-          <h4>경기 결과</h4>
-          <div className="input_wrapper">
-          <div className="input_wrapper game_list_wrapper">
+        <h4>경기 결과</h4>
+        <div className="input_wrapper game_list_wrapper">
           {gameList.map((it) => (
             <GameItem
               key={it.id}
@@ -93,6 +100,18 @@ const Editor = ({ initData, onSubmit }) => {
             />
           ))}
         </div>
+      </div>
+      <div className="editor_section">
+        <h4>상대팀</h4>
+        <div className="input_wrapper team_list_wrapper">
+          {teamList.map((it) => ( // gameList -> teamList로 수정
+            <TeamItem
+              key={it.id}
+              {...it}
+              onClick={handleChangeTeam}
+              isSelected={state.teamId === it.id}
+            />
+          ))}
         </div>
       </div>
       <div className="editor_section">
@@ -113,4 +132,5 @@ const Editor = ({ initData, onSubmit }) => {
     </div>
   );
 };
+
 export default Editor;
